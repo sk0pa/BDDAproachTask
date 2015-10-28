@@ -28,7 +28,7 @@ import static org.jbehave.core.io.CodeLocations.codeLocationFromClass;
 import static org.jbehave.core.reporters.Format.CONSOLE;
 import static org.jbehave.web.selenium.WebDriverHtmlOutput.WEB_DRIVER_HTML;
 
-public class EtsyDotComStories extends JUnitStories {
+public class PnComStories extends JUnitStories {
 
     PendingStepStrategy pendingStepStrategy = new FailingUponPendingStep();
     CrossReference crossReference = new CrossReference().withJsonOnly().withPendingStepStrategy(pendingStepStrategy)
@@ -39,7 +39,7 @@ public class EtsyDotComStories extends JUnitStories {
             crossReference.getStepMonitor());
     Format[] formats = new Format[] { new SeleniumContextOutput(seleniumContext), CONSOLE, WEB_DRIVER_HTML };
     StoryReporterBuilder reporterBuilder = new StoryReporterBuilder()
-            .withCodeLocation(codeLocationFromClass(EtsyDotComStories.class)).withFailureTrace(true)
+            .withCodeLocation(codeLocationFromClass(PnComStories.class)).withFailureTrace(true)
             .withFailureTraceCompression(true).withDefaultFormats().withFormats(formats)
             .withCrossReference(crossReference);
 
@@ -48,13 +48,13 @@ public class EtsyDotComStories extends JUnitStories {
         return new SeleniumConfiguration().useSeleniumContext(seleniumContext)
                 .usePendingStepStrategy(pendingStepStrategy)
                 .useStoryControls(new StoryControls().doResetStateBeforeScenario(false)).useStepMonitor(stepMonitor)
-                .useStoryLoader(new LoadFromClasspath(EtsyDotComStories.class))
+                .useStoryLoader(new LoadFromClasspath(PnComStories.class))
                 .useStoryReporterBuilder(reporterBuilder);
     }
 
     @Override
     public InjectableStepsFactory stepsFactory() {
-        ApplicationContext context = new SpringApplicationContextFactory("etsy-steps.xml").createApplicationContext();
+        ApplicationContext context = new SpringApplicationContextFactory("pncom-steps.xml").createApplicationContext();
         return new SpringStepsFactory(configuration(), context);
     }
 

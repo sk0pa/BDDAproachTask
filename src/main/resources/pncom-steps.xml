@@ -23,9 +23,8 @@
      <constructor-arg ref="driverProvider"/>
   </bean>  
   
-  <bean id="etsySteps" class="BDDAproach.steps.EtsyDotComSteps">
+  <bean id="pncomSteps" class="BDDAproach.steps.PnComSteps">
      <constructor-arg ref="pageFactory"/>
   </bean>  
-
 
 </beans>

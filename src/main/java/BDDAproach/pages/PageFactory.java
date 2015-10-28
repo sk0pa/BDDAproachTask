@@ -10,10 +10,6 @@ public class PageFactory {
         this.webDriverProvider = webDriverProvider;
     }
 
-//    public AdvancedSearch newAdvancedSearch() {
-//        return new AdvancedSearch(webDriverProvider);
-//    }
-
     public Home newHome() {
         return new Home(webDriverProvider);
     }
@@ -25,17 +21,5 @@ public class PageFactory {
     public SearchResult newSearchResult() {
         return new SearchResult(webDriverProvider);
     }
-//
-//    public CartContents newCartContents() {
-//        return new CartContents(webDriverProvider);
-//    }
-//
-//    public Buy newBuy() {
-//        return new Buy(webDriverProvider);
-//    }
-//
-//    public Treasury newTreasury() {
-//        return new Treasury(webDriverProvider);
-//    }
 
 }

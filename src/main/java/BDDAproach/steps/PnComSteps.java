@@ -24,11 +24,7 @@ public class PnComSteps {
     public PnComSteps(PageFactory pageFactory){
         categoryPage = pageFactory.newCategory();
         home = pageFactory.newHome();
-//        site = pageFactory.newSite();
         searchResult = pageFactory.newSearchResult();
-//        cartContents = pageFactory.newCartContents();
-//        buy = pageFactory.newBuy();
-//        treasury = pageFactory.newTreasury();
     }
 
     @Given("I am on pn.com.ua")

@@ -33,10 +33,10 @@ import static org.jbehave.web.selenium.WebDriverHtmlOutput.WEB_DRIVER_HTML;
 @RunWith(SpringAnnotatedEmbedderRunner.class)
 @Configure(using = SeleniumConfiguration.class, pendingStepStrategy = FailingUponPendingStep.class)
 @UsingEmbedder(embedder = Embedder.class, generateViewAfterStories = true, ignoreFailureInStories = true, ignoreFailureInView = false, storyTimeoutInSecs = 100, threads = 1, metaFilters = "-skip")
-@UsingSpring(resources = { "etsy-steps.xml" })
-public class AnnotatedEtsyDotComStories extends InjectableEmbedder {
+@UsingSpring(resources = {"pncom-steps.xml"})
+public class AnnotatedPnComStories extends InjectableEmbedder {
 
-    public AnnotatedEtsyDotComStories() {
+    public AnnotatedPnComStories() {
     }
 
     @Test
@@ -49,14 +49,14 @@ public class AnnotatedEtsyDotComStories extends InjectableEmbedder {
                 crossReference.getStepMonitor());
         Format[] formats = new Format[] { new SeleniumContextOutput(seleniumContext), CONSOLE, WEB_DRIVER_HTML };
         StoryReporterBuilder reporterBuilder = new StoryReporterBuilder()
-                .withCodeLocation(codeLocationFromClass(EtsyDotComStories.class)).withFailureTrace(true)
+                .withCodeLocation(codeLocationFromClass(PnComStories.class)).withFailureTrace(true)
                 .withFailureTraceCompression(true).withDefaultFormats().withFormats(formats)
                 .withCrossReference(crossReference);
 
         Configuration configuration = injectedEmbedder().configuration();
         configuration.useFailureStrategy(new FailingUponPendingStep())
                 .useStoryControls(new StoryControls().doResetStateBeforeScenario(false)).useStepMonitor(stepMonitor)
-                .useStoryLoader(new LoadFromClasspath(EtsyDotComStories.class))
+                .useStoryLoader(new LoadFromClasspath(PnComStories.class))
                 .useStoryReporterBuilder(reporterBuilder);
         if (configuration instanceof SeleniumConfiguration) {
             SeleniumConfiguration seleniumConfiguration = (SeleniumConfiguration) configuration;

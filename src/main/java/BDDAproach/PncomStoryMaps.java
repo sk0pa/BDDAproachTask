@@ -20,9 +20,9 @@ import static org.jbehave.core.io.CodeLocations.codeLocationFromClass;
  * Example of how stories can be mapped via JUnit.
  * </p>
  */
-public class EtsyStoryMaps extends JUnitStoryMaps {
+public class PncomStoryMaps extends JUnitStoryMaps {
 
-    public EtsyStoryMaps() {
+    public PncomStoryMaps() {
         configuredEmbedder().useMetaFilters(metaFilters());
     }
 
